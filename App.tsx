@@ -11,6 +11,28 @@ import { colors } from './theme/colors';
 import { AppProvider } from './store/AppContext';
 import { WebFrame } from './components/WebFrame';
 import { UserProvider, useUser } from './context/UserContext';
+import { Platform } from 'react-native';
+
+if (Platform.OS === 'web') {
+  const style = document.createElement('style');
+  style.textContent = `
+    /* Hide Vercel Toolbar and Feedback buttons */
+    .vercel-toolbar, #vercel-toolbar, vercel-live-feedback {
+      display: none !important;
+      opacity: 0 !important;
+      pointer-events: none !important;
+      visibility: hidden !important;
+    }
+    
+    /* Fix mobile browser viewport cut-off with dynamic viewport height */
+    html, body, #root {
+      height: 100dvh !important;
+      width: 100vw !important;
+      overflow: hidden !important;
+    }
+  `;
+  document.head.appendChild(style);
+}
 
 const Stack = createNativeStackNavigator();
 
