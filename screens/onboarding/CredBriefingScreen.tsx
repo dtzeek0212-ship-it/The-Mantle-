@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, StyleSheet, Text, TouchableOpacity } from 'react-native';
+import { View, StyleSheet, Text, TouchableOpacity, ScrollView } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { colors } from '../../theme/colors';
 import { typography } from '../../theme/typography';
@@ -32,7 +32,7 @@ export const CredBriefingScreen = () => {
                 <Text style={styles.headline}>EARN YOUR KEEP</Text>
             </View>
 
-            <View style={styles.content}>
+            <ScrollView style={{ flex: 1 }} contentContainerStyle={styles.content} showsVerticalScrollIndicator={false}>
 
                 <View style={styles.tallyContainer}>
                     <Icon name="Zap" size={48} color={colors.proShopAccent} />
@@ -47,7 +47,7 @@ export const CredBriefingScreen = () => {
                     </Text>
                 </View>
 
-            </View>
+            </ScrollView>
 
             <View style={styles.actionFooter}>
                 <TouchableOpacity
@@ -87,7 +87,7 @@ const styles = StyleSheet.create({
         marginBottom: 8,
     },
     content: {
-        flex: 1,
+        flexGrow: 1,
         paddingHorizontal: 24,
         justifyContent: 'center',
     },

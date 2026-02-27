@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, StyleSheet, Text, TouchableOpacity, Switch } from 'react-native';
+import { View, StyleSheet, Text, TouchableOpacity, Switch, ScrollView } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { colors } from '../../theme/colors';
 import { typography } from '../../theme/typography';
@@ -40,7 +40,7 @@ export const TheSyncScreen = () => {
                 <Text style={styles.subheadline}>Grant hardware permissions to operationalize the Mantle subsystems.</Text>
             </View>
 
-            <View style={styles.listContainer}>
+            <ScrollView style={styles.listContainer} contentContainerStyle={{ paddingBottom: 24 }} showsVerticalScrollIndicator={false}>
                 {PERMISSIONS.map((perm) => (
                     <View key={perm.id} style={styles.permCard}>
                         <View style={styles.permTextContent}>
@@ -62,7 +62,7 @@ export const TheSyncScreen = () => {
                         />
                     </View>
                 ))}
-            </View>
+            </ScrollView>
 
             <View style={styles.actionFooter}>
                 <TouchableOpacity

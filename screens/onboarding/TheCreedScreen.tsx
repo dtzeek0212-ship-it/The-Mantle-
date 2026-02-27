@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, StyleSheet, Text, TouchableOpacity, ImageBackground } from 'react-native';
+import { View, StyleSheet, Text, TouchableOpacity, ImageBackground, ScrollView } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { colors } from '../../theme/colors';
 import { typography } from '../../theme/typography';
@@ -15,7 +15,7 @@ export const TheCreedScreen = () => {
                 style={styles.bgImage}
                 imageStyle={{ opacity: 0.3 }}
             >
-                <View style={styles.content}>
+                <ScrollView contentContainerStyle={styles.content} showsVerticalScrollIndicator={false}>
                     <View style={styles.headerSpacer} />
 
                     <View style={styles.textContainer}>
@@ -40,7 +40,7 @@ export const TheCreedScreen = () => {
                             </View>
                         </TouchableOpacity>
                     </View>
-                </View>
+                </ScrollView>
             </ImageBackground>
         </View>
     );
@@ -56,7 +56,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
     },
     content: {
-        flex: 1,
+        flexGrow: 1,
         padding: 32,
         justifyContent: 'space-between',
     },
