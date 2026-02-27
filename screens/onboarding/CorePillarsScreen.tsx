@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, StyleSheet, Text, TouchableOpacity } from 'react-native';
+import { View, StyleSheet, Text, TouchableOpacity, ScrollView } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { colors } from '../../theme/colors';
 import { typography } from '../../theme/typography';
@@ -25,7 +25,11 @@ export const CorePillarsScreen = () => {
                 <Text style={styles.subheadline}>Select a subsystem to review its primary objective.</Text>
             </View>
 
-            <View style={styles.gridContainer}>
+            <ScrollView
+                style={styles.gridContainer}
+                contentContainerStyle={{ paddingBottom: 24 }}
+                showsVerticalScrollIndicator={false}
+            >
                 {PILLARS.map((pillar, index) => {
                     const isActive = activeIndex === index;
                     return (
@@ -56,7 +60,7 @@ export const CorePillarsScreen = () => {
                         </TouchableOpacity>
                     );
                 })}
-            </View>
+            </ScrollView>
 
             <View style={styles.actionFooter}>
                 <TouchableOpacity
