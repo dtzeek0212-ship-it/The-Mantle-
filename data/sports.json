@@ -1,0 +1,74 @@
+{
+    "liveScores": [
+        {
+            "id": "ls_1",
+            "league": "NFL",
+            "awayTeam": "KC",
+            "awayScore": 24,
+            "homeTeam": "PHI",
+            "homeScore": 14,
+            "status": "Q3 12:44"
+        },
+        {
+            "id": "ls_2",
+            "league": "NBA",
+            "awayTeam": "LAL",
+            "awayScore": 102,
+            "homeTeam": "BOS",
+            "homeScore": 98,
+            "status": "Q4 02:15"
+        },
+        {
+            "id": "ls_3",
+            "league": "MLB",
+            "awayTeam": "NYY",
+            "awayScore": 4,
+            "homeTeam": "BOS",
+            "homeScore": 1,
+            "status": "Top 7th"
+        },
+        {
+            "id": "ls_4",
+            "league": "NHL",
+            "awayTeam": "TOR",
+            "awayScore": 2,
+            "homeTeam": "MTL",
+            "homeScore": 2,
+            "status": "P2 14:30"
+        }
+    ],
+    "upcomingMatchups": [
+        {
+            "id": "up_1",
+            "league": "UFC",
+            "awayTeam": "Fighter A",
+            "homeTeam": "Champ B",
+            "time": "Tomorrow, 9:00 PM EST",
+            "odds": "A (+150) | B (-180)"
+        },
+        {
+            "id": "up_2",
+            "league": "NFL",
+            "awayTeam": "DAL",
+            "homeTeam": "SF",
+            "time": "Sun, 4:25 PM EST",
+            "odds": "SF -4.5"
+        },
+        {
+            "id": "up_3",
+            "league": "NHL",
+            "awayTeam": "NYR",
+            "homeTeam": "BOS",
+            "time": "Tonight, 7:00 PM EST",
+            "odds": "NYR +110 | BOS -130"
+        },
+        {
+            "id": "up_4",
+            "league": "NBA",
+            "awayTeam": "GSW",
+            "homeTeam": "PHX",
+            "time": "Mon, 10:00 PM EST",
+            "odds": "PHX -2.5"
+        }
+    ]
+}

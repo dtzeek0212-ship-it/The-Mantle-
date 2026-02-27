@@ -1,0 +1,42 @@
+[
+    {
+        "id": "t_001",
+        "name": "Mike Rivera",
+        "trade": "Plumber",
+        "rating": 4.9,
+        "isVerified": true,
+        "phone": "+1-555-0100"
+    },
+    {
+        "id": "t_002",
+        "name": "Tom Hayes",
+        "trade": "Electrician",
+        "rating": 4.7,
+        "isVerified": true,
+        "phone": "+1-555-0101"
+    },
+    {
+        "id": "t_003",
+        "name": "Sarah Jenkins",
+        "trade": "Carpenter",
+        "rating": 4.8,
+        "isVerified": false,
+        "phone": "+1-555-0102"
+    },
+    {
+        "id": "t_004",
+        "name": "David Chen",
+        "trade": "HVAC Specialist",
+        "rating": 4.9,
+        "isVerified": true,
+        "phone": "+1-555-0103"
+    },
+    {
+        "id": "t_005",
+        "name": "Leo Martin",
+        "trade": "General Contractor",
+        "rating": 4.5,
+        "isVerified": false,
+        "phone": "+1-555-0104"
+    }
+]

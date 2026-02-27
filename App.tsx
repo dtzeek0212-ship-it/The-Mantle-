@@ -1,20 +1,68 @@
+import React from 'react';
+import { NavigationContainer, DarkTheme } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { useFonts, SairaStencilOne_400Regular } from '@expo-google-fonts/saira-stencil-one';
+import { RobotoMono_400Regular } from '@expo-google-fonts/roboto-mono';
+import { Orbitron_900Black } from '@expo-google-fonts/orbitron';
+import { BottomTabNavigator } from './navigation/BottomTabNavigator';
+import { OnboardingStack } from './navigation/OnboardingNavigator';
+import { colors } from './theme/colors';
+import { AppProvider } from './store/AppContext';
+import { WebFrame } from './components/WebFrame';
+import { UserProvider, useUser } from './context/UserContext';
+
+const Stack = createNativeStackNavigator();
+
+// Customizing the Navigation Default Theme
+const MyDarkTheme = {
+  ...DarkTheme,
+  colors: {
+    ...DarkTheme.colors,
+    primary: colors.primary,
+    background: colors.background,
+    card: colors.surface,
+    text: colors.textPrimary,
+    border: colors.border,
+  },
+};
+
+// Internal navigator that listens to User context
+const AppNavigator = () => {
+  const { user } = useUser();
+
+  return (
+    <Stack.Navigator screenOptions={{ headerShown: false }}>
+      {!user.hasCompletedOnboarding ? (
+        <Stack.Screen name="Onboarding" component={OnboardingStack} />
+      ) : (
+        <Stack.Screen name="MainApp" component={BottomTabNavigator} />
+      )}
+    </Stack.Navigator>
+  );
+};
 
 export default function App() {
+  const [fontsLoaded] = useFonts({
+    SairaStencilOne_400Regular,
+    RobotoMono_400Regular,
+    Orbitron_900Black,
+  });
+
+  if (!fontsLoaded) {
+    return null;
+  }
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <UserProvider>
+      <AppProvider>
+        <WebFrame>
+          <StatusBar style="light" />
+          <NavigationContainer theme={MyDarkTheme}>
+            <AppNavigator />
+          </NavigationContainer>
+        </WebFrame>
+      </AppProvider>
+    </UserProvider>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
